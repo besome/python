@@ -30,7 +30,11 @@ if __name__ == '__main__':
     print("##################################\n")
     print("Calculadora Python\n")
     print("Qual operação você deseja realizar?\n")
-    opt = input(" 1 - Subtração\n 2 - Soma\n 3 - Divisão\n 4 - Multiplicação\n 5 - Raiz Quadrada\n 6 - Potência\n")
+    try:
+        opt = int(input(" 1 - Subtração\n 2 - Soma\n 3 - Divisão\n 4 - Multiplicação\n 5 - Raiz Quadrada\n 6 - Potência\n"))
+    except ValueError:
+        print("Opção inválida! Insira uma das opções exibidas na tela.")
+        exit()
     try:
         a = float(input("Digite o primeiro número: "))
         if opt == 5:
@@ -50,7 +54,7 @@ if __name__ == '__main__':
         "6": Potencia
     }
     
-    resultado = operacoes.get(opt, erro)(a, b)
+    resultado = operacoes.get(str(opt), erro)(a, b)
 
     print(f"Resultado: {resultado}")
     print("##################################\n")
